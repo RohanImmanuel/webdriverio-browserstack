@@ -15,7 +15,13 @@ steps:
     versionSpec: '12.x'
   displayName: 'Install Node.js'
 
+- task: BrowserStackConfig@0
+  inputs:
+    BrowserStackServiceEndPoint: 'BrowserStack Auth'
+
 - script: |
     npm install
     npm run parallel
   displayName: 'npm install and build'
+
+- task: BrowserStackResults@0
